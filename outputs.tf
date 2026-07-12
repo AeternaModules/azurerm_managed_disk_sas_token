@@ -1,3 +1,7 @@
+output "managed_disk_sas_tokens_id" {
+  description = "Map of id values across all managed_disk_sas_tokens, keyed the same as var.managed_disk_sas_tokens"
+  value       = { for k, v in azurerm_managed_disk_sas_token.managed_disk_sas_tokens : k => v.id }
+}
 output "managed_disk_sas_tokens_access_level" {
   description = "Map of access_level values across all managed_disk_sas_tokens, keyed the same as var.managed_disk_sas_tokens"
   value       = { for k, v in azurerm_managed_disk_sas_token.managed_disk_sas_tokens : k => v.access_level }
